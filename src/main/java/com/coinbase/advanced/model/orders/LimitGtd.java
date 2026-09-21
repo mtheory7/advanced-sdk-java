@@ -6,6 +6,9 @@ public class LimitGtd {
     @JsonProperty("base_size")
     private String baseSize;
 
+    @JsonProperty("quote_size")
+    private String quoteSize;
+
     @JsonProperty("limit_price")
     private String limitPrice;
 
@@ -21,6 +24,14 @@ public class LimitGtd {
 
     public void setBaseSize(String baseSize) {
         this.baseSize = baseSize;
+    }
+
+    public String getQuoteSize() {
+        return quoteSize;
+    }
+
+    public void setQuoteSize(String quoteSize) {
+        this.quoteSize = quoteSize;
     }
 
     public String getLimitPrice() {
@@ -49,12 +60,18 @@ public class LimitGtd {
 
     public static class Builder {
         private String baseSize;
+        private String quoteSize;
         private String limitPrice;
         private String endTime;
         private boolean postOnly;
 
         public Builder baseSize(String baseSize) {
             this.baseSize = baseSize;
+            return this;
+        }
+
+        public Builder quoteSize(String quoteSize) {
+            this.quoteSize = quoteSize;
             return this;
         }
 
@@ -76,6 +93,7 @@ public class LimitGtd {
         public LimitGtd build() {
             LimitGtd limitGtd = new LimitGtd();
             limitGtd.baseSize = this.baseSize;
+            limitGtd.quoteSize = this.quoteSize;
             limitGtd.limitPrice = this.limitPrice;
             limitGtd.endTime = this.endTime;
             limitGtd.postOnly = this.postOnly;

@@ -24,6 +24,9 @@ public class LimitGtc {
     @JsonProperty("base_size")
     private String baseSize;
 
+    @JsonProperty("quote_size")
+    private String quoteSize;
+
     @JsonProperty("limit_price")
     private String limitPrice;
 
@@ -36,6 +39,14 @@ public class LimitGtc {
 
     public void setBaseSize(String baseSize) {
         this.baseSize = baseSize;
+    }
+
+    public String getQuoteSize() {
+        return quoteSize;
+    }
+
+    public void setQuoteSize(String quoteSize) {
+        this.quoteSize = quoteSize;
     }
 
     public String getLimitPrice() {
@@ -57,11 +68,17 @@ public class LimitGtc {
 
     public static class Builder {
         private String baseSize;
+        private String quoteSize;
         private String limitPrice;
         private boolean postOnly;
 
         public Builder baseSize(String baseSize) {
             this.baseSize = baseSize;
+            return this;
+        }
+
+        public Builder quoteSize(String quoteSize) {
+            this.quoteSize = quoteSize;
             return this;
         }
 
@@ -78,6 +95,7 @@ public class LimitGtc {
         public LimitGtc build() {
             LimitGtc limitGtc = new LimitGtc();
             limitGtc.baseSize = this.baseSize;
+            limitGtc.quoteSize = this.quoteSize;
             limitGtc.limitPrice = this.limitPrice;
             limitGtc.postOnly = this.postOnly;
             return limitGtc;

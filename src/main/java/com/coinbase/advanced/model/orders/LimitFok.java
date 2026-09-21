@@ -25,12 +25,23 @@ public class LimitFok {
     @JsonProperty("limit_price")
     private String limitPrice;
 
+    @JsonProperty("quote_size")
+    private String quoteSize;
+
     public String getBaseSize() {
         return baseSize;
     }
 
     public void setBaseSize(String baseSize) {
         this.baseSize = baseSize;
+    }
+
+    public String getQuoteSize() {
+        return quoteSize;
+    }
+
+    public void setQuoteSize(String quoteSize) {
+        this.quoteSize = quoteSize;
     }
 
     public String getLimitPrice() {
@@ -43,10 +54,16 @@ public class LimitFok {
 
     public static class Builder {
         private String baseSize;
+        private String quoteSize;
         private String limitPrice;
 
         public Builder baseSize(String baseSize) {
             this.baseSize = baseSize;
+            return this;
+        }
+
+        public Builder quoteSize(String quoteSize) {
+            this.quoteSize = quoteSize;
             return this;
         }
 
@@ -58,6 +75,7 @@ public class LimitFok {
         public LimitFok build() {
             LimitFok limitFok = new LimitFok();
             limitFok.baseSize = this.baseSize;
+            limitFok.quoteSize = this.quoteSize;
             limitFok.limitPrice = this.limitPrice;
             return limitFok;
         }
